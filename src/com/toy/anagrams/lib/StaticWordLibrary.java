@@ -84,7 +84,7 @@ final class StaticWordLibrary extends WordLibrary {
         "traditional",
         "python"};
 
-    private static final String[] SCRAMBLED_WORD_LIST = {
+    /*private static final String[] SCRAMBLED_WORD_LIST = {
         "batsartcoin",
         "maibuguos",
         "ratimhteci",
@@ -131,7 +131,7 @@ final class StaticWordLibrary extends WordLibrary {
         "nuisngde",
         "rtadlioiatn",
         "nythpo"
-    };
+    };*/
     
     final static WordLibrary DEFAULT = new StaticWordLibrary();
 
@@ -156,7 +156,26 @@ final class StaticWordLibrary extends WordLibrary {
      * @return word at that index in its scrambled form
      */
     public String getScrambledWord(int idx) {
-        return SCRAMBLED_WORD_LIST[idx];
+    	
+    	return suffle(getWord(idx));
+    	
+        //return SCRAMBLED_WORD_LIST[idx];
+    }
+    
+    public String suffle(String input) {
+    	
+    	List<Character> characters = new ArrayList<Character>();
+        for(char c:input.toCharArray()){
+            characters.add(c);
+        }
+        StringBuilder output = new StringBuilder(input.length());
+        while(characters.size()!=0){
+            int randPicker = (int)(Math.random()*characters.size());
+            output.append(characters.remove(randPicker));
+        }
+    	
+		return output.toString();
+    	
     }
 
     /**
