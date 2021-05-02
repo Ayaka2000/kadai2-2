@@ -31,6 +31,9 @@
 
 package com.toy.anagrams.lib;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Implementation of the logic for the Anagram Game application.
  */
